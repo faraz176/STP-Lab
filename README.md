@@ -16,10 +16,10 @@ This report is intentionally focused on **STP mechanics**, not on the later band
 ## Topology used in CML
 
 ### Planned topology
-![Planned topology](screenshots/01_planned_topology.png)    
+![Planned topology](stp_lab_report_package/screenshots/01_planned_topology.png)    
 
 ### Running topology
-![Running topology](screenshots/02_running_topology.png)
+![Running topology](stp_lab_report_package/screenshots/02_running_topology.png)
 
 ### Device roles
 - **DIST1** — distribution switch, configured as **Rapid PVST+ root primary** for VLAN 10
@@ -157,7 +157,7 @@ interface g0/2
 ## Verification outputs
 
 ### SW1 — `show spanning-tree vlan 10`
-![SW1 spanning-tree](screenshots/03_sw1_show_spanning_tree_vlan10.png)
+![SW1 spanning-tree](stp_lab_report_package/screenshots/03_sw1_show_spanning_tree_vlan10.png)
 
 Observed state:
 - `Et0/0` = **Root / Forwarding**
@@ -169,7 +169,7 @@ Interpretation:
 - The redundant uplink **Et0/1** was correctly placed into the alternate blocking state.
 
 ### SW2 — `show spanning-tree vlan 10`
-![SW2 spanning-tree](screenshots/04_sw2_show_spanning_tree_vlan10.png)
+![SW2 spanning-tree](stp_lab_report_package/screenshots/04_sw2_show_spanning_tree_vlan10.png)
 
 Observed state:
 - `Et0/0` = **Root / Forwarding**
@@ -180,7 +180,7 @@ Interpretation:
 - SW2 mirrored SW1 behavior: one uplink was selected as the active root path, and the other was held as an alternate path.
 
 ### DIST1 — `show spanning-tree vlan 10`
-![DIST1 spanning-tree](screenshots/05_dist1_show_spanning_tree_vlan10.png)
+![DIST1 spanning-tree](stp_lab_report_package/screenshots/05_dist1_show_spanning_tree_vlan10.png)
 
 Observed state:
 - `This bridge is the root`
@@ -191,7 +191,7 @@ Interpretation:
 - As the root, DIST1 had no root port; all participating ports were designated forwarding ports.
 
 ### DIST2 — `show spanning-tree vlan 10`
-![DIST2 spanning-tree](screenshots/06_dist2_show_spanning_tree_vlan10.png)
+![DIST2 spanning-tree](stp_lab_report_package/screenshots/06_dist2_show_spanning_tree_vlan10.png)
 
 Observed state:
 - Root path points to `Gi0/2`
@@ -267,7 +267,7 @@ end
 ```
 
 ### Relevant syslog / RSTP events
-Stored in: [`logs/convergence_syslog_snippet.txt`](logs/convergence_syslog_snippet.txt)
+Stored in: [`logs/convergence_syslog_snippet.txt`](stp_lab_report_package/logs/convergence_syslog_snippet.txt)
 
 Key timestamps from SW1:
 ```text
